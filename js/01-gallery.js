@@ -28,11 +28,14 @@ galleryCardsEl.addEventListener('click', onCardClick);
 
 function onCardClick(event){
   event.preventDefault();
+
   window.addEventListener('keydown', onEscKeyPress);
+
  const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" >
 `)
   instance.show(); 
+  
   function onEscKeyPress(event) {
   
   if (event.code === "Escape") {
