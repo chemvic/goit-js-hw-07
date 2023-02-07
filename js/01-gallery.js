@@ -29,6 +29,10 @@ galleryCardsEl.addEventListener('click', onCardClick);
 function onCardClick(event){
   event.preventDefault();
 
+  if (!event.currentTarget===event.target) {
+    return;
+  }
+  
   window.addEventListener('keydown', onEscKeyPress);
 
  const instance = basicLightbox.create(`
@@ -40,6 +44,7 @@ function onCardClick(event){
   
   if (event.code === "Escape") {
     instance.close();
+    window.removeEventListener('keydown', onEscKeyPress);
   }
 }
 }
