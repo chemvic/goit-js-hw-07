@@ -16,14 +16,7 @@ const galleryMarkup = createGalleryCardsMarkup(galleryItems);
 
 galleryCardsEl.insertAdjacentHTML('beforeend', galleryMarkup);
 
-galleryCardsEl.addEventListener('click', onCardClick);
 
-
-function onCardClick(event) {
-   event.preventDefault();  
- if (!event.currentTarget===event.target) {
-    return;
-  }
 
 let lightbox = new SimpleLightbox('.gallery__item',
     {
@@ -32,4 +25,4 @@ let lightbox = new SimpleLightbox('.gallery__item',
     captionDelay: 250
 });
   
-}
+

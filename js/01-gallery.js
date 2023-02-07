@@ -33,7 +33,7 @@ function onCardClick(event){
     return;
   }
   
-  window.addEventListener('keydown', onEscKeyPress);
+  window.addEventListener('keydown', onEscKeyPress,{once:true});
 
  const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" >
