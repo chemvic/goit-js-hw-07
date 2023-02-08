@@ -28,8 +28,8 @@ galleryCardsEl.addEventListener('click', onCardClick);
 
 function onCardClick(event){
   event.preventDefault();
-
-  if (!event.currentTarget===event.target) {
+  
+  if (!event.target.classList.contains('gallery__image')) {   
     return;
   }
  
