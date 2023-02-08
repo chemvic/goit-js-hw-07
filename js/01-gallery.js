@@ -32,20 +32,26 @@ function onCardClick(event){
   if (!event.currentTarget===event.target) {
     return;
   }
-  
-  document.addEventListener('keydown', onEscKeyPress,{once:true});
-
+ 
  const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" >
-`)
+`,{
+   onShow: (instance) => {
+     document.addEventListener('keydown', onEscKeyPress);
+},
+
+onClose: (instance) => {
+       document.removeEventListener('keydown', onEscKeyPress);
+}
+
+})
   instance.show(); 
   
   function onEscKeyPress(event) {
   
   if (event.code === "Escape") {
     instance.close();
-    document.removeEventListener('keydown', onEscKeyPress);
-  }
+     }
 }
 }
 
