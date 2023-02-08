@@ -33,7 +33,7 @@ function onCardClick(event){
     return;
   }
   
-  window.addEventListener('keydown', onEscKeyPress,{once:true});
+  document.addEventListener('keydown', onEscKeyPress,{once:true});
 
  const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" >
@@ -44,7 +44,7 @@ function onCardClick(event){
   
   if (event.code === "Escape") {
     instance.close();
-    window.removeEventListener('keydown', onEscKeyPress);
+    document.removeEventListener('keydown', onEscKeyPress);
   }
 }
 }
